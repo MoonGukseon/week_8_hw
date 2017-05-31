@@ -30,11 +30,10 @@
                 <div class="input-field col s12">
                     <input type="hidden" value="<%= @post.id %>" name="post_id">
                     <% if user_signed_in? %>
-                        <input disabled id="editor" type="text" class="validate" name="editor" value="<%= current_user.email %>">
+                        <input readonly id="editor" type="text" class="validate" name="editor" value="<%= current_user.email %>">
                     <% else %>
                         <input id="editor" type="text" class="validate" name="editor">   
                     <% end %>
-                    
                     <label for="last_name">Editor:</label>
                 </div>
                 <div class="input-field col s12 m12">
