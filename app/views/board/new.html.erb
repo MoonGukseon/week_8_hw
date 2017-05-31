@@ -1,0 +1,40 @@
+<div clss="container">
+    <h2 style="font-family: 'Pacifico', cursive;">Write</h2>
+    <form class="col s12 m12" action="/create" method="post" enctype="multipart/form-data">
+        <div class="input-field col s12">
+            <input id="title" type="text" class="validate" name="title">
+            <label for="last_name">Title</label>
+        </div>
+        <div class="input-field col s12 m12">
+            <input disabled name="editor" value="<%= current_user.email %>" id="disabled" type="text" class="validate">
+            <label for="last_name">Editor</label>
+        </div>
+        
+        <div class="file-field input-field">
+            <div class="btn">
+                <span>File</span>
+                <input type="file" name="image_url">
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+            </div>
+        </div>
+        
+        <div class="input-field col s12 m12">
+            <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+            <label for="textarea1">Content</label>
+        </div>
+        <div class="col s12 m4">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+        </div>
+    </form>
+    <div class="col l12 m12 s12 center-align">
+        <a class="waves-effect waves-light btn" href="/">Go To Dashboad</a>
+    </div><br>
+</div>
+
+<script>
+    $(document).ready(function() {
+        Materialize.updateTextFields();
+    });
+</script>

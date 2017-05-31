@@ -1,0 +1,42 @@
+<head>
+</head>
+<body>
+    <div class="container">
+        <div class = "row">
+            <div class="col m8 s6 left-align">
+                <h2 style="font-family: 'Pacifico', cursive;">Dashboad</h2>
+            </div>
+            <div class="col m4 s6 right-align">
+                <% if user_signed_in? %>
+                    <br>
+                    <small> <%= @user_email %> &nbsp; </small>
+                    <a class="waves-effect waves-light btn-small" href="/users/sign_out" style="text-decoration:none;">LogOut</a>
+                <% else %>
+                    <br><a class="waves-effect waves-light btn-small" href="/users/sign_in" style="text-decoration:none;">LogIn</a>   
+                <% end %>
+            </div>
+        </div>
+        <div class="col s12 m12">
+            <table class="highlight">  
+                <thead>
+                    <tr>
+                        <th width="80%">Title</th>
+                        <th>Editor</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <% @post_list.each do |e| %>
+                    <tr>
+                        <td><a href="/show/<%= e.id %>" style="text-decoration: none; color: black"><%= e.title %></a></td>
+                        <td><%= e.editor %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col m2 right-align">
+            <a class="waves-effect waves-light btn" href = "/new">Write</a>
+        </div>
+    </div>
+</body>
